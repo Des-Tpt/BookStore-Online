@@ -1,0 +1,160 @@
+body {
+    border-bottom: 1px solid #ddd;
+    justify-content:space-between;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+.banner {
+    padding-top: 20px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 18px;
+    border-bottom: 1px solid #ddd;
+}
+
+.featured-text{
+    padding-left: 20px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.featured {
+    display: flex;
+    max-height: 250px;
+    gap: 20px;
+    padding-top: 5px;
+    padding-bottom: 40px;
+    justify-content: space-between;
+}
+
+.book-card {
+    display: flex;
+    position: relative;
+    width: 500px;
+    padding: 1px;
+    color: white;
+    border: 1px solid #ddd;
+    background:rgb(255, 255, 255);
+    color: black;
+}
+
+
+.book-card.grey {
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.book-img {
+    max-height: 100%;
+    max-width: 40%;
+    margin-right: 20px;
+}
+
+.book-card h3 {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 22px;
+}
+
+.book-info ul {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.btn.small {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: white;
+    color: black;
+    font-size: 15px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.book-item {
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 10px;
+    min-height: 350px;
+    border-radius: 5px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.book-overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    text-decoration: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+  
+.book-item:hover .book-overlay {
+    opacity: 1;
+}
+  
+.book-overlay span {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 8px 16px;
+    border-radius: 4px;
+}
+  
+.book-overlay:hover span {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.book-image {
+    max-width: 100%;
+    max-height: 250px;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+}
+
+.book-title {
+    font-size: 23px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.book-pricing del {
+    color: #888;
+}
+
+.discounted {
+    color: green;
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+.discount-tag {
+    background-color: red;
+    color: white;
+    padding: 2px 6px;
+    font-size: 12px;
+    border-radius: 4px;
+    margin-left: 5px;
+}
+
+.swiper {
+    width: 100%;
+    padding: 20px 0;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.swiper:hover .swiper-button-prev,
+.swiper:hover .swiper-button-next {
+    opacity: 1;
+}

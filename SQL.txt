@@ -1,0 +1,65 @@
+-- Cơ sở dữ liệu đơn giản cho trang web bán sách
+-- Gồm 3 bảng: người dùng, sách, danh mục sách
+
+-- 1. Bảng người dùng
+CREATE TABLE users (
+    user_id INT PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(100) NOT NULL,
+    full_name VARCHAR(100),
+    email VARCHAR(100),
+    role ENUM('customer', 'admin') DEFAULT 'customer'
+);
+
+-- 2. Bảng danh mục sách
+CREATE TABLE categories (
+    category_id INT PRIMARY KEY AUTO_INCREMENT,
+    category_name VARCHAR(100) NOT NULL
+);
+
+-- 3. Bảng sách
+
+CREATE TABLE books (
+    book_id INT PRIMARY KEY AUTO_INCREMENT,
+    title VARCHAR(255) NOT NULL,
+    author VARCHAR(100),
+    price DECIMAL(10,2),
+    stock INT DEFAULT 0,
+    image VARCHAR(255),
+    description VARCHAR(255),
+    category_id INT,
+    discount_percent DECIMAL(5,2) DEFAULT 0,
+    FOREIGN KEY (category_id) REFERENCES categories(category_id)
+);
+
+-- Dữ liệu mẫu
+-- Thêm người dùng
+INSERT INTO users (username, password, full_name, email, role) VALUES
+('admin', 'admin123', 'Quản trị viên', 'admin@example.com', 'admin'),
+('user1', 'user123', 'Nguyễn Văn A', 'user1@example.com', 'customer');
+
+-- Thêm danh mục sách
+INSERT INTO categories (category_name) VALUES
+('Khoa học'),
+('Văn học'),
+('Lịch sử'),
+('Thiếu nhi'),
+('Công nghệ');
+
+INSERT INTO books (title, author, price, stock, image, description, category_id, discount_percent) VALUES
+('Đắc Nhân Tâm', 'Dale Carnegie', 85000, 50, 'Image/dacnhantam.jpg', 'Một cuốn sách self-help nổi bật', 2, 10),
+('Harry Potter và Hòn Đá Phù Thủy', 'J.K. Rowling', 120000, 30, 'Image/harrypotter1.jpg', 'Một cuốn tiểu thuyết', 1, 15),
+('Vũ Trụ Trong Vỏ Hạt Dẻ', 'Stephen Hawking', 150000, 20, 'Image/vutru.jpg', 'Một cuốn sách về sự vĩ mô của vụ trụ', 3, 5),
+('Lược sử thời gian', 'Stephen Hawking', 135000, 12, 'Image/book2.jpg', 'Cuốn sách khoa học bán chạy hàng đầu.', 1, 8),
+('Dế Mèn phiêu lưu ký', 'Tô Hoài', 60000, 20, 'Image/book3.jpg', 'Hành trình của chú dế mèn dũng cảm.', 4, 12),
+('Chiến tranh và hòa bình', 'Leo Tolstoy', 180000, 8, 'Image/book5.jpg', 'Kiệt tác văn học Nga về chiến tranh.', 2, 7),
+('Sapiens: Lược sử loài người', 'Yuval Noah Harari', 160000, 10, 'Image/book6.jpg', 'Lịch sử tiến hóa của loài người.', 3, 10),
+('1984', 'George Orwell', 95000, 5, 'Image/book7.jpg', 'Thế giới tương lai u ám và ám ảnh.', 2, 6),
+('Tư duy nhanh và chậm', 'Daniel Kahneman', 140000, 6, 'Image/book9.jpg', 'Cách não bộ đưa ra quyết định.', 1, 9),
+('Lịch sử Việt Nam', 'Nhiều tác giả', 110000, 9, 'Image/book11.jpg', 'Tổng hợp lịch sử từ thời Hùng Vương.', 3, 5),
+('Tôi thấy hoa vàng trên cỏ xanh', 'Nguyễn Nhật Ánh', 85000, 14, 'Image/book12.jpg', 'Tuổi thơ tươi đẹp và trong sáng.', 4, 10),
+('Thế giới phẳng', 'Thomas Friedman', 115000, 7, 'Image/book15.jpg', 'Toàn cầu hóa và công nghệ.', 1, 8),
+('Đi tìm lẽ sống', 'Viktor Frankl', 100000, 11, 'Image/book16.jpg', 'Hành trình sống sót trong trại tập trung.', 2, 7),
+('Totto-chan bên cửa sổ', 'Tetsuko Kuroyanagi', 95000, 8, 'Image/book18.jpg', 'Câu chuyện cảm động về giáo dục.', 4, 12),
+('Sherlock Holmes toàn tập', 'Arthur Conan Doyle', 170000, 4, 'Image/book19.jpg', 'Thám tử đại tài phá giải những vụ án hóc búa.', 2, 10),
+('Bách khoa tri thức cho trẻ', 'Nhiều tác giả', 99000, 21, 'Image/book23.jpg', 'Tổng hợp kiến thức thú vị cho trẻ.', 4, 5);
