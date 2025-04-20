@@ -3,19 +3,20 @@ body {
     justify-content:space-between;
     margin: 0 auto;
     max-width: 1200px;
+    background-color: #f0f0f0;
 }
 
 .banner {
     padding-top: 20px;
     border-bottom: 1px solid #ddd;
     padding-bottom: 18px;
-    border-bottom: 1px solid #ddd;
 }
 
 .featured-text{
     padding-left: 20px;
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
+
 
 .featured {
     display: flex;
@@ -24,6 +25,7 @@ body {
     padding-top: 5px;
     padding-bottom: 40px;
     justify-content: space-between;
+    border-bottom: 1px solid #ddd;
 }
 
 .book-card {
@@ -70,10 +72,8 @@ body {
 
 .book-item {
     background: #fff;
-    border: 1px solid #ddd;
     padding: 10px;
     min-height: 350px;
-    border-radius: 5px;
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -89,6 +89,7 @@ body {
     justify-content: center;
     color: white;
     font-weight: bold;
+    border-radius: 8px;
     font-size: 16px;
     text-decoration: none;
     opacity: 0;
@@ -110,7 +111,7 @@ body {
 }
 
 .book-image {
-    max-width: 100%;
+    max-width: auto;
     max-height: 250px;
     height: auto;
     object-fit: contain;
@@ -124,17 +125,26 @@ body {
     margin-top: 10px;
 }
 
+
 .book-pricing del {
-    color: #888;
+    position: absolute;
+    bottom: 15px;
+    left: 20px;
+    color: #ff0000;
 }
 
 .discounted {
-    color: green;
+    position: absolute;
+    bottom: 15px;
+    left: 85px;
+    color: #ff0000;
     font-weight: bold;
-    margin-left: 5px;
 }
 
 .discount-tag {
+    position: absolute;
+    bottom: 15px;
+    right: 20px;
     background-color: red;
     color: white;
     padding: 2px 6px;
@@ -144,8 +154,8 @@ body {
 }
 
 .swiper {
+    padding-top: 60px;
     width: 100%;
-    padding: 20px 0;
 }
 
 .swiper-button-prev,
@@ -157,4 +167,28 @@ body {
 .swiper:hover .swiper-button-prev,
 .swiper:hover .swiper-button-next {
     opacity: 1;
+}
+
+.swiper-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 35px;
+    background-color: white;
+    border-radius: 8px;
+    padding-bottom: 20px;
+}
+
+.swiper-text{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 20px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.swiper-text a {
+    padding-right: 20px;
+    font-size: 20px;
 }

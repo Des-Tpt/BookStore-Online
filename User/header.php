@@ -1,3 +1,8 @@
+<?php
+    include "config.php";
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +12,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 </head>
 <body>
-
 <header class="main-header">
     <div class="header-title">
         <div class="logo">
@@ -38,8 +42,13 @@
         <div class="account">
             <a href="#"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1rTLeQraa9s-Rkj2_KMPOzh30CwK1G2D85A&s" alt="Người dùng" width="45px" ></a>
             <div class="login-signin">
+                <?php if ( isset($_GET['username'])): ?>
+                    <span><?= htmlspecialchars($_SESSION['username']) ?><span>
+                ?>
+                <?php else : ?>
                 <a class="login" href="#">Đăng ký</a>
                 <a class="signin" href="#">Đăng nhập</a>
+                <?php endif; ?>
             </div>
         </div>
 
@@ -54,9 +63,9 @@
 
     <div class="header-bottom">
         <div class="margin-left-right-wrapped">
-            <button class="home-button">Trang chủ</button>
+            <a href="index.php"><button class="home-button">Trang chủ</button></a>
             <div class="categories">
-                    <button class="dropbtn">Thể loại</button>
+                    <a href="categories.php"><button class="dropbtn">Thể loại</button></a>
                     <div class="dropdown-content">
                         <?php
                             include "config.php";
