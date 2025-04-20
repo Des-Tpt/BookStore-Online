@@ -1,0 +1,322 @@
+body {
+    border-bottom: 1px solid #ddd;
+    justify-content:space-between;
+    margin: 0 auto;
+    max-width: 1200px;
+    background-color: #f0f0f0;
+}
+
+.middle-part {
+    display: flex;
+    flex-direction: column;
+}
+
+.book-detail-container {
+    display: flex;
+    gap: 20px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    background-color: #f0f0f0;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+}
+
+.book-image img {
+    max-width: 280px;
+    min-height: 437px;    
+    object-fit: contain;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    background-color: #fff;
+}
+
+.book-info {
+    background-color: white;
+    border-radius: 8px;
+    padding-left: 20px;
+    padding-right: 20px;
+    min-height: 250px;
+}
+
+.title-book {
+    font-size: 30px;
+}
+
+.info {
+    font-size: 20px;
+    font-weight: bold;
+    width: 100%;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.address {
+    width: 100%;
+    display: flex;
+    font-size: 15px;
+    justify-content:space-between;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+.address a{
+    padding-right: 5px;
+}
+.price.discounted {
+    color: red;
+    font-weight: bold;
+    font-size: 18px;
+    margin-right: 10px;
+}
+
+.original-price {
+    text-decoration: line-through;
+    color: #888;
+    margin-right: 8px;
+    font-size: 14px;
+}
+
+.discount-label {
+    background-color: #ff424f;
+    color: #fff;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.shipping-text-container {
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+
+}
+.shipping-text-container-p{
+    display: flex;
+    font-size: 15px;
+    padding-top: 5px;
+}
+
+.shipping-info {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    padding: 12px;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+}
+
+.shipping-icon {
+    font-size: 24px;
+    margin-top: 3px;
+}
+
+.shipping-text p {
+    margin: 4px 0;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.shipping-text .free-ship {
+    padding-top: 10px;
+    color: #007aff;
+    font-weight: bold;
+}
+
+.book-actions {
+    min-width: 250px;
+    min-height: 300px;
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: #fff;
+}
+
+.quantity-selector {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 10px;
+}
+
+.quantity-selector button {
+    width: 32px;
+    height: 32px;
+    font-size: 18px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+
+.quantity-selector input {
+    width: 50px;
+    text-align: center;
+    font-size: 16px;
+    padding: 4px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.subtotal {
+    font-size: 20px;
+    font-weight: bold;
+    color: #b12704;
+    margin-bottom: 10px;
+}
+
+.book-actions button {
+    padding: 10px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    border: none;
+}
+
+.book-actions .buy-now {
+    background-color: #ff424e;
+    color: white;
+}
+
+.book-actions .add-to-cart {
+    background-color: white;
+    color: #007aff;
+    border: 1px solid #007aff;
+}
+
+.book-actions .buy-later {
+    background-color: white;
+    color: #555;
+    border: 1px solid #ccc;
+}
+
+
+
+.book-item {
+    background: #fff;
+    padding: 10px;
+    min-height: 350px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.book-overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    border-radius: 8px;
+    font-size: 16px;
+    text-decoration: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+  
+.book-item:hover .book-overlay {
+    opacity: 1;
+}
+  
+.book-overlay span {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 8px 16px;
+    border-radius: 4px;
+}
+  
+.book-overlay:hover span {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.book-image-swiper {
+    max-width: auto;
+    max-height: 250px;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+}
+
+.book-title {
+    font-size: 23px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+
+.book-pricing del {
+    position: absolute;
+    bottom: 15px;
+    left: 20px;
+    color: #888;
+}
+
+.discounted-swiper {
+    position: absolute;
+    bottom: 15px;
+    left: 85px;
+    color: #ff0000;
+    font-weight: bold;
+}
+
+.discount-tag {
+    position: absolute;
+    bottom: 15px;
+    right: 20px;
+    background-color: red;
+    color: white;
+    padding: 2px 6px;
+    font-size: 12px;
+    border-radius: 4px;
+    margin-left: 5px;
+}
+
+.swiper {
+    padding-top: 60px;
+    width: 100%;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.swiper:hover .swiper-button-prev,
+.swiper:hover .swiper-button-next {
+    opacity: 1;
+}
+
+.swiper-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 35px;
+    background-color: white;
+    border-radius: 8px;
+    padding-bottom: 20px;
+}
+
+.swiper-text{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 20px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.swiper-text a {
+    padding-right: 20px;
+    font-size: 20px;
+}

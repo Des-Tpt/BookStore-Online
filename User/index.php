@@ -5,7 +5,7 @@
 
     $featured_result = mysqli_query($connect, "SELECT * FROM books ORDER BY RAND() LIMIT 3") or die("Lỗi truy vấn featured: " . mysqli_error($connect));;
     $slide_result = mysqli_query($connect,"SELECT * FROM books WHERE category_id = 2 ORDER BY RAND() LIMIT 7") or die("Lỗi truy vấn featured: " . mysqli_error($connect));;
-    $science_result = mysqli_query($connect,"SELECT * FROM books WHERE category_id = 1 ORDER BY RAND() LIMIT 7") or die("Lỗi truy vấn featured: " . mysqli_error($connect));;
+    $science_result = mysqli_query($connect, "SELECT * FROM books WHERE category_id = 1 ORDER BY RAND() LIMIT 7") or die("Lỗi truy vấn featured: " . mysqli_error($connect));;
     $childrens_book_result = mysqli_query($connect,"SELECT * FROM books WHERE category_id = 4 ORDER BY RAND() LIMIT 7") or die("Lỗi truy vấn featured: " . mysqli_error($connect));;
     $all_result = mysqli_query($connect,"SELECT * FROM books ORDER BY RAND() LIMIT 7") or die("Lỗi truy vấn featured: " . mysqli_error($connect));;
     
@@ -45,7 +45,7 @@
                     <ul>
                         <li><?= $row['description'] ?></li>
                     </ul>
-                    <a href="#" class="btn small">Xem chi tiết...</a>
+                    <a href="book_detail.php?id=<?= $row['book_id'] ?>" class="btn small">Xem chi tiết...</a>
                 </div>
             </div>
         <?php 
@@ -56,7 +56,7 @@
         <div class="swiper-container">
         <div class="swiper-text">
             <h1>Văn học</h1>
-            <a href="#">Xem thêm...</a>
+            <a href="categories.php?category=2">Xem thêm...</a>
         </div>
         <div class="swiper mySwiper">         <!-- mySwiper là 1 biến được dùng để khai báo với thư viện Swiper, nó được dùng ở line 93-->
             <div class="swiper-wrapper">
@@ -96,7 +96,7 @@
         <div class="swiper-container">
         <div class="swiper-text">
             <h1>Khoa học</h1>
-            <a href="#">Xem thêm...</a>
+            <a href="categories.php?category=1">Xem thêm...</a>
         </div>
         <div class="swiper mySwiper">       
             <div class="swiper-wrapper">
@@ -112,7 +112,7 @@
                         <div class="book-item">
                             <img src="<?= $row['image'] ?>" alt="<?= $row['title'] ?>" class ="book-image">
 
-                            <a href="book_detail.php?id= <?= $row['book_id'] ?>" class="book-overlay">
+                            <a href="book_detail.php?id=<?= $row['book_id'] ?>" class="book-overlay">
                                 <span>Xem chi tiết</span>
                             </a>
 
@@ -139,7 +139,7 @@
         <div class="swiper-container">
         <div class="swiper-text">
             <h1>Thiếu nhi</h1>
-            <a href="#">Xem thêm...</a>
+            <a href="categories.php?category=4">Xem thêm...</a>
         </div>
         <div class="swiper mySwiper">        
             <div class="swiper-wrapper">
@@ -155,7 +155,7 @@
                         <div class="book-item">
                             <img src="<?= $row['image'] ?>" alt="<?= $row['title'] ?>" class ="book-image">
 
-                            <a href="book_detail.php?id= <?= $row['book_id'] ?>" class="book-overlay">
+                            <a href="book_detail.php?id=<?= $row['book_id']?>" class="book-overlay">
                                 <span>Xem chi tiết</span>
                             </a>
 
@@ -181,7 +181,7 @@
         <div class="swiper-container">
         <div class="swiper-text">
             <h1>Mọi thể loại...</h1>
-            <a href="#">Xem thêm...</a>
+            <a href="categories.php?">Xem thêm...</a>
         </div>
         <div class="swiper mySwiper">        
             <div class="swiper-wrapper">
@@ -234,4 +234,10 @@
         </script>
 
     </body>
+
+    <footer>
+        <?php
+            include 'footer.php';
+        ?>
+    </footer>
 </html>
