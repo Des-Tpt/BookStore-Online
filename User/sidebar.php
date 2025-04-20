@@ -15,6 +15,7 @@ $cateQuery = mysqli_query($connect, "SELECT * FROM categories");
         <input type="radio" name="category" value="" <?= ($selected_category == '') ? 'checked' : '' ?>>
             Tất cả sản phẩm
     </label><br>
+
     <?php while ($row = mysqli_fetch_assoc($cateQuery)): ?>
         <label>
             <input type="radio" name="category" value="<?= $row['category_id'] ?>"
@@ -23,11 +24,13 @@ $cateQuery = mysqli_query($connect, "SELECT * FROM categories");
         </label><br>
     <?php endwhile; ?>
 </div>
+
     <h3>Giá</h3>
     <label>
         <input type="radio" name="price" value="" <?= ($selected_price == '') ? 'checked' : '' ?>>
             Mọi mức giá
     </label><br>
+
     <?php
     $prices = [
         "0-50000" => "0đ - 50.000đ",

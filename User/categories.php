@@ -42,20 +42,20 @@
             <?php while ($book = mysqli_fetch_assoc($result)): 
                 $discounted_price = $book['price'] * (1 - $book['discount_percent'] / 100);
             ?>
-            <div class="book-item">
-                <a href="#" class="book-overlay">
+                <div class="book-item">
+                    <a href="book_detail.php?id=<?= $book['book_id']?>" class="book-overlay">
                         <span>Xem chi tiết</span>
-                </a>
-                <img src="<?= htmlspecialchars($book['image']) ?>" alt="<?= htmlspecialchars($book['title']) ?>">
-                <h4><?= htmlspecialchars($book['title']) ?></h4>
-                <p>Tác giả: <?= htmlspecialchars($book['author']) ?></p>
-                <p>
-                <span class="price"><?= number_format($discounted_price, 0, ',', '.') ?>đ</span>
-                <?php if ($book['discount_percent'] > 0): ?>
-                <span class="original-price"><?= number_format($book['price'], 0, ',', '.') ?>đ</span>
-                <?php endif; ?>
-                </p>
-            </div>
+                    </a>
+                    <img src="<?= htmlspecialchars($book['image']) ?>" alt="<?= htmlspecialchars($book['title']) ?>">
+                    <h4><?= htmlspecialchars($book['title']) ?></h4>
+                    <p>Tác giả: <?= htmlspecialchars($book['author']) ?></p>
+                    <p>
+                    <span class="price"><?= number_format($discounted_price, 0, ',', '.') ?>đ</span>
+                    <?php if ($book['discount_percent'] > 0): ?>
+                    <span class="original-price"><?= number_format($book['price'], 0, ',', '.') ?>đ</s>
+                    <?php endif; ?>
+                    </p>
+                </div>
 
             <?php endwhile; ?>
             <?php else: ?>

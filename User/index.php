@@ -70,7 +70,7 @@
                     <div class="swiper-slide">
                         <div class="book-item">
                             <img src="<?= $row['image'] ?>" alt="<?= $row['title'] ?>" class ="book-image">
-                            <a href="#" class="book-overlay">
+                            <a href="book_detail.php?id= <?= $row['book_id'] ?>" class="book-overlay">
                             <span>Xem chi tiết</span>
                             </a>
                             <div class="book-title"><?= $row['title'] ?></div>
@@ -112,7 +112,7 @@
                         <div class="book-item">
                             <img src="<?= $row['image'] ?>" alt="<?= $row['title'] ?>" class ="book-image">
 
-                            <a href="#" class="book-overlay">
+                            <a href="book_detail.php?id= <?= $row['book_id'] ?>" class="book-overlay">
                                 <span>Xem chi tiết</span>
                             </a>
 
@@ -155,7 +155,7 @@
                         <div class="book-item">
                             <img src="<?= $row['image'] ?>" alt="<?= $row['title'] ?>" class ="book-image">
 
-                            <a href="#" class="book-overlay">
+                            <a href="book_detail.php?id= <?= $row['book_id'] ?>" class="book-overlay">
                                 <span>Xem chi tiết</span>
                             </a>
 

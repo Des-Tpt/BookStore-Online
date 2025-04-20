@@ -65,18 +65,7 @@
         <div class="margin-left-right-wrapped">
             <a href="index.php"><button class="home-button">Trang chủ</button></a>
             <div class="categories">
-                    <a href="categories.php"><button class="dropbtn">Thể loại</button></a>
-                    <div class="dropdown-content">
-                        <?php
-                            include "config.php";
-
-                            $result = mysqli_query($connect, "SELECT * FROM categories");
-
-                            while($row = mysqli_fetch_assoc($result)) {
-                            echo '<a href="categories.php?id=' . $row['category_id']. '">' . $row['category_name'] . '</a>';
-                            }
-                        ?>
-                    </div>
+            <a href="categories.php"><button class="dropbtn">Thể loại</button></a>
             </div>
             <button class="policy-button">Chính sách</button>                  
             <button class="contact-button">Liên hệ</button>
