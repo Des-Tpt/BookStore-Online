@@ -20,17 +20,19 @@ CREATE TABLE categories (
 -- 3. Bảng sách
 
 CREATE TABLE books (
-    book_id INT PRIMARY KEY AUTO_INCREMENT,
-    title VARCHAR(255) NOT NULL,
-    author VARCHAR(100),
-    price DECIMAL(10,2),
-    stock INT DEFAULT 0,
-    image VARCHAR(255),
-    description VARCHAR(255),
-    category_id INT,
-    discount_percent DECIMAL(5,2) DEFAULT 0,
-    FOREIGN KEY (category_id) REFERENCES categories(category_id)
-);
+  book_id int(11) NOT NULL AUTO_INCREMENT,
+  title varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  author varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  price decimal(10,2) DEFAULT NULL,
+  stock int(11) DEFAULT '0',
+  image varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  description varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  detail_description TEXT COLLATE utf8_unicode_ci DEFAULT NULL,
+  category_id int(11) DEFAULT NULL,
+  discount_percent decimal(5,2) DEFAULT '0.00',
+  PRIMARY KEY (book_id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
 
 -- Dữ liệu mẫu
 -- Thêm người dùng
@@ -46,20 +48,48 @@ INSERT INTO categories (category_name) VALUES
 ('Thiếu nhi'),
 ('Công nghệ');
 
-INSERT INTO books (title, author, price, stock, image, description, category_id, discount_percent) VALUES
-('Đắc Nhân Tâm', 'Dale Carnegie', 85000, 50, 'Image/dacnhantam.jpg', 'Một cuốn sách self-help nổi bật', 2, 10),
-('Harry Potter và Hòn Đá Phù Thủy', 'J.K. Rowling', 120000, 30, 'Image/harrypotter1.jpg', 'Một cuốn tiểu thuyết', 1, 15),
-('Vũ Trụ Trong Vỏ Hạt Dẻ', 'Stephen Hawking', 150000, 20, 'Image/vutru.jpg', 'Một cuốn sách về sự vĩ mô của vụ trụ', 3, 5),
-('Lược sử thời gian', 'Stephen Hawking', 135000, 12, 'Image/book2.jpg', 'Cuốn sách khoa học bán chạy hàng đầu.', 1, 8),
-('Dế Mèn phiêu lưu ký', 'Tô Hoài', 60000, 20, 'Image/book3.jpg', 'Hành trình của chú dế mèn dũng cảm.', 4, 12),
-('Chiến tranh và hòa bình', 'Leo Tolstoy', 180000, 8, 'Image/book5.jpg', 'Kiệt tác văn học Nga về chiến tranh.', 2, 7),
-('Sapiens: Lược sử loài người', 'Yuval Noah Harari', 160000, 10, 'Image/book6.jpg', 'Lịch sử tiến hóa của loài người.', 3, 10),
-('1984', 'George Orwell', 95000, 5, 'Image/book7.jpg', 'Thế giới tương lai u ám và ám ảnh.', 2, 6),
-('Tư duy nhanh và chậm', 'Daniel Kahneman', 140000, 6, 'Image/book9.jpg', 'Cách não bộ đưa ra quyết định.', 1, 9),
-('Lịch sử Việt Nam', 'Nhiều tác giả', 110000, 9, 'Image/book11.jpg', 'Tổng hợp lịch sử từ thời Hùng Vương.', 3, 5),
-('Tôi thấy hoa vàng trên cỏ xanh', 'Nguyễn Nhật Ánh', 85000, 14, 'Image/book12.jpg', 'Tuổi thơ tươi đẹp và trong sáng.', 4, 10),
-('Thế giới phẳng', 'Thomas Friedman', 115000, 7, 'Image/book15.jpg', 'Toàn cầu hóa và công nghệ.', 1, 8),
-('Đi tìm lẽ sống', 'Viktor Frankl', 100000, 11, 'Image/book16.jpg', 'Hành trình sống sót trong trại tập trung.', 2, 7),
-('Totto-chan bên cửa sổ', 'Tetsuko Kuroyanagi', 95000, 8, 'Image/book18.jpg', 'Câu chuyện cảm động về giáo dục.', 4, 12),
-('Sherlock Holmes toàn tập', 'Arthur Conan Doyle', 170000, 4, 'Image/book19.jpg', 'Thám tử đại tài phá giải những vụ án hóc búa.', 2, 10),
-('Bách khoa tri thức cho trẻ', 'Nhiều tác giả', 99000, 21, 'Image/book23.jpg', 'Tổng hợp kiến thức thú vị cho trẻ.', 4, 5);
+INSERT INTO `books` (`title`, `author`, `price`, `stock`, `image`, `description`, `detail_description`, `category_id`, `discount_percent`) VALUES
+('Đắc Nhân Tâm', 'Dale Carnegie', '85000.00', 50, 'Image/dacnhantam.jpg', 'Một cuốn sách self-help nổi bật',
+'Nội dung của “Đắc Nhân Tâm” giúp bạn cải thiện các mối quan hệ, tăng khả năng lãnh đạo và đạt được thành công bền vững thông qua sự chân thành và lắng nghe.', 2, '0.00'),
+
+('Harry Potter và Hòn Đá Phù Thủy', 'J.K. Rowling', '120000.00', 30, 'Image/harrypotter1.jpg', 'Một cuốn tiểu thuyết',
+'Cuốn sách đầu tiên mở ra thế giới phép thuật đầy màu sắc, nơi cậu bé Harry Potter bước vào ngôi trường Hogwarts và khám phá ra số phận đặc biệt của mình.', 1, '15.00'),
+
+('Vũ Trụ Trong Vỏ Hạt Dẻ', 'Stephen Hawking', '150000.00', 20, 'Image/vutru.jpg', 'Một cuốn sách về sự vĩ mô của vũ trụ',
+'Stephen Hawking đưa bạn đến những ranh giới khoa học, giải thích những lý thuyết phức tạp về vũ trụ theo cách dễ hiểu và đầy trí tuệ.', 3, '5.00'),
+
+('Lược sử thời gian', 'Stephen Hawking', '135000.00', 12, 'Image/book2.jpg', 'Cuốn sách khoa học bán chạy hàng đầu.',
+'Cuốn sách kinh điển nói về nguồn gốc vũ trụ, hố đen, lý thuyết dây và khái niệm thời gian - tất cả được trình bày bằng ngôn ngữ dễ tiếp cận.', 1, '8.00'),
+
+('Dế Mèn phiêu lưu ký', 'Tô Hoài', '60000.00', 20, 'Image/book3.jpg', 'Hành trình của chú dế mèn dũng cảm.',
+'Một trong những tác phẩm văn học thiếu nhi nổi tiếng nhất Việt Nam, kể về cuộc phiêu lưu thú vị và bài học trưởng thành của chú Dế Mèn.', 4, '12.00'),
+
+('Sapiens: Lược sử loài người', 'Yuval Noah Harari', '160000.00', 10, 'Image/book6.jpg', 'Lịch sử tiến hóa của loài người.',
+'Cuốn sách khám phá hành trình tiến hóa của Homo sapiens từ thời đồ đá đến thời đại công nghệ, đặt ra những câu hỏi lớn về bản chất con người và xã hội.', 3, '10.00'),
+
+('1984', 'George Orwell', '95000.00', 5, 'Image/book7.jpg', 'Thế giới tương lai u ám và ám ảnh.',
+'Tác phẩm phản địa đàng kinh điển, mô tả một xã hội toàn trị nơi chính quyền kiểm soát mọi suy nghĩ và hành vi, khơi dậy nỗi sợ về mất tự do.', 2, '6.00'),
+
+('Tư duy nhanh và chậm', 'Daniel Kahneman', '140000.00', 6, 'Image/book9.jpg', 'Cách não bộ đưa ra quyết định.',
+'Một công trình nghiên cứu tâm lý học nổi bật, giúp người đọc hiểu rõ hai hệ thống tư duy của con người và cách chúng ảnh hưởng đến lựa chọn và hành vi.', 1, '9.00'),
+
+('Lịch sử Việt Nam', 'Nhiều tác giả', '110000.00', 9, 'Image/book11.jpg', 'Tổng hợp lịch sử từ thời Hùng Vương.',
+'Tổng hợp các giai đoạn lịch sử trọng yếu của dân tộc Việt Nam từ thời dựng nước đến hiện đại, trình bày rõ ràng, dễ hiểu.', 3, '5.00'),
+
+('Tôi thấy hoa vàng trên cỏ xanh', 'Nguyễn Nhật Ánh', '85000.00', 14, 'Image/book12.jpg', 'Tuổi thơ tươi đẹp và trong sáng.',
+'Một tác phẩm đầy cảm xúc về tình anh em, tuổi thơ và cuộc sống làng quê Việt Nam, gợi nhớ những ký ức trong trẻo và ngây ngô.', 4, '10.00'),
+
+('Thế giới phẳng', 'Thomas Friedman', '115000.00', 7, 'Image/book15.jpg', 'Toàn cầu hóa và công nghệ.',
+'Cuốn sách phân tích sự phát triển nhanh chóng của công nghệ và toàn cầu hóa, cùng những cơ hội lẫn thách thức mà thế giới hiện đại phải đối mặt.', 1, '8.00'),
+
+('Đi tìm lẽ sống', 'Viktor Frankl', '100000.00', 11, 'Image/book16.jpg', 'Hành trình sống sót trong trại tập trung.',
+'Tác phẩm dựa trên trải nghiệm thật của tác giả trong trại tập trung Đức Quốc Xã, kết hợp với liệu pháp ý nghĩa để tìm thấy giá trị sống.', 2, '7.00'),
+
+('Totto-chan bên cửa sổ', 'Tetsuko Kuroyanagi', '95000.00', 8, 'Image/book18.jpg', 'Câu chuyện cảm động về giáo dục.',
+'Câu chuyện cảm động về một cô bé hiếu động và một ngôi trường đặc biệt, nơi giáo dục được đặt trên sự thấu hiểu và tình thương.', 4, '12.00'),
+
+('Sherlock Holmes toàn tập', 'Arthur Conan Doyle', '170000.00', 4, 'Image/book19.jpg', 'Thám tử đại tài phá giải những vụ án hóc búa.',
+'Tuyển tập các vụ án kinh điển do thám tử Sherlock Holmes phá giải, với sự logic sắc bén và lối kể chuyện lôi cuốn.', 2, '10.00'),
+
+('Bách khoa tri thức cho trẻ', 'Nhiều tác giả', '99000.00', 21, 'Image/book23.jpg', 'Tổng hợp kiến thức thú vị cho trẻ.',
+'Cuốn sách tổng hợp nhiều lĩnh vực từ thiên văn, địa lý đến khoa học và xã hội, giúp trẻ em khám phá thế giới xung quanh một cách sinh động.', 4, '5.00');
