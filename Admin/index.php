@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-// Nếu chưa đăng nhập hoặc không phải admin thì chuyển hướng về trang User
 if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
     header("Location: ../User/index.php");
     exit();
