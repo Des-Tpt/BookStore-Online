@@ -1,4 +1,11 @@
 <?php
+
+if(!isset($_SESSION)) 
+{ 
+    session_start(); 
+} 
+
+
 $servername = "localhost";
 $username = "root";
 $password = "vertrigo";
@@ -14,10 +21,4 @@ mysqli_set_charset($connect, "utf8");
 if ($connect->connect_error) {
     die("Kết nối thất bại: " . $connect->connect_error);
 }
-
-if(!isset($_SESSION)) 
-{ 
-    session_start(); 
-} 
-
 ?>

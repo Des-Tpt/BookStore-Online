@@ -1,7 +1,5 @@
 <?php
     include "config.php";
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -42,12 +40,11 @@
         <div class="account">
             <a href="#"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1rTLeQraa9s-Rkj2_KMPOzh30CwK1G2D85A&s" alt="Người dùng" width="45px" ></a>
             <div class="login-signin">
-                <?php if ( isset($_GET['username'])): ?>
-                    <span><?= htmlspecialchars($_SESSION['username']) ?><span>
-                ?>
+                <?php if (isset($_SESSION['username'])): ?>
+                    <span><?=htmlspecialchars($_SESSION['username'])?></span>
                 <?php else : ?>
-                <a class="login" href="#">Đăng ký</a>
-                <a class="signin" href="#">Đăng nhập</a>
+                <a class="login" href="../Admin/login_register.php">Đăng ký</a>
+                <a class="signin" href="../Admin/login_register.php">Đăng nhập</a>
                 <?php endif; ?>
             </div>
         </div>
