@@ -5,7 +5,6 @@
 
 	if (!$danhsach) {
 		die("Không thể thực hiện câu lệnh SQL: " . $connect->connect_error);
-		exit();
 	}
 
 ?>

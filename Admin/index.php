@@ -39,7 +39,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
             <?php if (isset($_SESSION['user_id'])): ?>
                 <h3>Hồ sơ cá nhân</h3>
                 <ul>
-                    <li><a href="index.php?do=hosocanhan">Hồ sơ</a></li>
+                    <li><a href="index.php?do=hosonguoidung">Hồ sơ</a></li>
                     <li><a href="index.php?do=forget_password">Đổi mật khẩu</a></li>
                 </ul>
             <?php endif; ?>
