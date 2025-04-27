@@ -3,6 +3,7 @@ include __DIR__ . "/../User/config.php";
 
 $login = trim($_POST['login']);
 $password = trim($_POST['password']);
+$_POST ['error'] = null;
 
 if ($login == "") {
     $_SESSION['error'] = "Tên đăng nhập không được bỏ trống!";
@@ -30,9 +31,13 @@ if ($login == "") {
             exit();
         } else {
             $_SESSION["error"] = "Tên đăng nhập hoặc mật khẩu sai...";
+            header("Location: login_register.php");
+            exit();
         }
     } else {
         $_SESSION["error"] = "Tên đăng nhập hoặc mật khẩu sai...";
+        header("Location: login_register.php");
+        exit();
     }
 }
 ?>

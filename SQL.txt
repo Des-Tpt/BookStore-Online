@@ -1,6 +1,9 @@
 -- Cơ sở dữ liệu đơn giản cho trang web bán sách
 -- Gồm 3 bảng: người dùng, sách, danh mục sách
 
+CREATE DATABASE shopbook;
+USE shopbook;
+
 -- 1. Bảng người dùng
 CREATE TABLE users (
     user_id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,

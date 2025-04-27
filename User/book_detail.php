@@ -48,7 +48,7 @@ $slide_result = mysqli_query($connect,"SELECT * FROM books WHERE category_id = $
                 <span class="price discounted"><?= number_format($book['price'], 0, ',', '.') ?>đ</span>
             <?php endif; ?>
             </p>
-            <p><strong>Mô tả chi tiết:</rong> <?= nl2br(htmlspecialchars($book['detail_description'])) ?></p>
+            <p><strong>Mô tả chi tiết:</strong> <?= nl2br(htmlspecialchars($book['detail_description'])) ?></p>
         </div>
         <div class="shipping-info">
             <div class="info"><span>Thông tin vận chuyển:</span></div>

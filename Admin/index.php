@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
     header("Location: ../User/index.php");
     exit();
@@ -28,33 +27,25 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
 </head>
 <body>
 <div id="TrangWeb">
-    <!-- Content -->
     <div id="PhanGiua">
-        <!-- Sidebar -->
         <div id="BenTrai">
-            <h3>Quản lý</h3>
-            <ul>
-                <li><a href="index.php?do=users">Người dùng</a></li>
+             <h3>Quản lý</h3>
+                <ul>
+                <li><a href="index.php?do=nguoidung">Người dùng</a></li>
                 <li><a href="index.php?do=books">Sách</a></li>
                 <li><a href="index.php?do=categories">Thể loại</a></li>
-            </ul>
+                </ul>
 
-            <?php if (isset($_SESSION['MaND'])): ?>
+            <?php if (isset($_SESSION['user_id'])): ?>
                 <h3>Hồ sơ cá nhân</h3>
                 <ul>
                     <li><a href="index.php?do=hosocanhan">Hồ sơ</a></li>
-                    <li><a href="index.php?do=doimatkhau">Đổi mật khẩu</a></li>
+                    <li><a href="index.php?do=forget_password">Đổi mật khẩu</a></li>
                 </ul>
             <?php endif; ?>
 
-            <h3>Khác</h3>
-            <ul>
-                <li><a href="#">.......</a></li>
-                <li><a href="#">.......</a></li>
             </ul>
         </div>
-
-        <!-- Main Content -->
         <div id="BenPhai">
             <?php
                 $do = $_GET['do'] ?? "home";
@@ -62,7 +53,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
                 if (file_exists($file)) {
                     include $file;
                 } else {
-                    echo "<h2>404 - Không tìm thấy trang</h2>";
+                    echo "<h1>Vui lòng chọn chức năng...</h1>";
                 }
             ?>
         </div>
