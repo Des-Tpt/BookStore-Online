@@ -56,15 +56,6 @@ if ($result->num_rows > 0) {
             border-collapse: collapse;
         }
 
-        .user-table thead th {
-            background-color: #e9ecef;
-            padding: 12px;
-            font-size: 16px;
-            color: #495057;
-            text-align: left;
-            border-bottom: 2px solid #dee2e6;
-        }
-
         .user-table tbody td {
             padding: 12px;
             border-bottom: 1px solid #dee2e6;
