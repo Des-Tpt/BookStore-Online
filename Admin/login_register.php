@@ -122,12 +122,7 @@ unset($_SESSION['error'], $_SESSION['success']);
             <input type="password" id="newPassword" class="fadeIn third" name="confirm_password" placeholder="Xác nhận mật khẩu...">
             <input type="submit" class="fadeIn fourth" value="Sign Up">
         </form>
-
-    <!-- Remind Passowrd -->
-        <div id="formFooter">
-            <a class="underlineHover" href="#">Forgot Password?</a>
-        </div>
-
+        
     </div>
 </div>
 
